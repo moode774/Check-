@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.env*
+!.env.example
+*.db
+*.db-journal
+*.log
+.DS_Store
+.cache/
+public/images/*.png
+!public/images/.gitkeep
