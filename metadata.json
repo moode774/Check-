@@ -1,0 +1,7 @@
+{
+  "name": "سكن يمن | SakanYemen",
+  "description": "المنصة الرقمية الأولى لإدارة وإيجار العقارات في اليمن - حماية، شفافية، وسهولة.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
