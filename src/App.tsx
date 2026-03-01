@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Home, Search, LayoutDashboard, LogIn, UserPlus, Building2, MapPin, Phone, Mail, Menu, X, LogOut, ChevronRight, Star, ShieldCheck, CreditCard, FileText, PlusCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -121,7 +121,7 @@ const Footer = () => {
               المنصة الرقمية الأولى لإدارة وإيجار العقارات في اليمن. نهدف إلى حماية حقوق الجميع وتوفير تجربة تأجير آمنة وشفافة.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-display font-bold text-lg mb-6 text-accent">روابط سريعة</h4>
             <ul className="space-y-4 text-white/70">
@@ -150,7 +150,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-sm">
           <p>© 2026 سكن يمن. جميع الحقوق محفوظة.</p>
           <div className="flex gap-6">
@@ -164,6 +164,8 @@ const Footer = () => {
 };
 
 export default function App() {
+  const basename = import.meta.env.PROD ? '/Check-' : '';
+
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-surface">

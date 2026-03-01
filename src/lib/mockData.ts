@@ -14,7 +14,7 @@ export const mockProperties: Property[] = [
         bathrooms: 2,
         floor: 3,
         features: ["مفروش", "مصعد", "كراج", "حراسة"],
-        images: ["/Check-/images/luxury_apartment_sanaa.png"],
+        images: ["images/luxury_apartment_sanaa.png"],
         status: "available",
         created_at: new Date().toISOString()
     },
