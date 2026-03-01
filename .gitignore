@@ -6,5 +6,9 @@ node_modules/
 *.log
 .DS_Store
 .cache/
-public/images/*.png
-!public/images/.gitkeep
+dist/
+build/
+# Allow index.html, assets, and images at root for GH Pages
+!index.html
+!assets/
+!images/
