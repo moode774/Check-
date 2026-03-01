@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { 
-  MapPin, Home, Landmark, Star, ShieldCheck, CreditCard, 
-  FileText, Phone, Mail, Share2, Heart, ChevronRight, 
+import {
+  MapPin, Home, Landmark, Star, ShieldCheck, CreditCard,
+  FileText, Phone, Mail, Share2, Heart, ChevronRight,
   ChevronLeft, Users, CheckCircle2, Info, AlertCircle
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -41,33 +41,36 @@ export default function PropertyDetailsPage() {
   return (
     <div className="bg-surface pb-24">
       {/* Image Gallery */}
-      <section className="h-[60vh] md:h-[75vh] relative overflow-hidden bg-primary">
-        <img 
-          src={property.images[activeImage] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"} 
-          alt={property.title} 
-          className="w-full h-full object-cover opacity-80"
+      <section className="h-[50vh] md:h-[80vh] relative overflow-hidden bg-primary">
+        <motion.img
+          initial={{ scale: 1.1, opacity: 0.8 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1 }}
+          src={property.images[activeImage] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000"}
+          alt={property.title}
+          className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
-        
-        <div className="absolute bottom-8 right-8 left-8 flex justify-between items-end">
-          <div className="flex gap-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+
+        <div className="absolute bottom-10 right-4 left-4 md:right-12 md:left-12 flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
+          <div className="flex gap-3 bg-black/20 backdrop-blur-xl p-2 rounded-[24px] border border-white/10 overflow-x-auto max-w-full">
             {property.images.map((img, i) => (
-              <button 
-                key={i} 
+              <button
+                key={i}
                 onClick={() => setActiveImage(i)}
-                className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${activeImage === i ? 'border-accent scale-110' : 'border-white/20 opacity-60'}`}
+                className={`w-16 h-16 md:w-24 md:h-24 flex-shrink-0 rounded-[18px] overflow-hidden border-2 transition-all ${activeImage === i ? 'border-accent scale-105 shadow-2xl shadow-accent/20' : 'border-transparent opacity-50 hover:opacity-100'}`}
               >
                 <img src={img} alt="" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>
           <div className="flex gap-4">
-            <button className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 hover:bg-white/20 transition-all">
-              <Share2 size={20} />
+            <button className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-accent hover:border-accent transition-all shadow-2xl active:scale-90">
+              <Share2 size={24} />
             </button>
-            <button className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 hover:bg-white/20 transition-all">
-              <Heart size={20} />
+            <button className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-red-500 hover:border-red-500 transition-all shadow-2xl active:scale-90">
+              <Heart size={24} />
             </button>
           </div>
         </div>
@@ -199,7 +202,7 @@ export default function PropertyDetailsPage() {
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={handleRentRequest}
                   className="w-full luxury-button py-4 text-lg bg-primary text-white hover:bg-black"
                 >

@@ -23,13 +23,32 @@
 }
 
 .luxury-card {
-  @apply bg-white border border-black/5 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md;
+  @apply bg-white border border-black/5 rounded-[24px] shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 overflow-hidden;
 }
 
 .luxury-button {
-  @apply px-6 py-3 bg-primary text-white rounded-lg font-display font-bold transition-all hover:bg-black/90 active:scale-95 disabled:opacity-50;
+  @apply px-8 py-4 bg-primary text-white rounded-2xl font-display font-bold transition-all hover:bg-black/90 active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-primary/10;
 }
 
 .luxury-button-outline {
-  @apply px-6 py-3 border-2 border-primary text-primary rounded-lg font-display font-bold transition-all hover:bg-primary hover:text-white active:scale-95;
+  @apply px-8 py-4 border-2 border-primary text-primary rounded-2xl font-display font-bold transition-all hover:bg-primary hover:text-white active:scale-95 flex items-center justify-center gap-2;
+}
+
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/10 rounded-full hover:bg-primary/20 transition-colors;
 }

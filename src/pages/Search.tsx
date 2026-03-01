@@ -47,32 +47,40 @@ export default function SearchPage() {
     <div className="min-h-screen bg-surface py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Search Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-display font-bold text-primary mb-6">ابحث عن عقارك القادم</h1>
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-grow relative">
-              <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 text-primary/30" size={20} />
-              <input 
-                type="text" 
-                placeholder="ابحث بالمدينة، الحي، أو اسم العقار..." 
-                className="w-full pr-12 pl-4 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-accent font-medium shadow-sm"
+        <div className="mb-16 text-center md:text-right">
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-4xl md:text-6xl font-display font-black text-primary mb-8 text-gradient"
+          >
+            ابحث عن عقارك القادم
+          </motion.h1>
+          <div className="flex flex-col md:flex-row gap-4 p-3 bg-white/50 backdrop-blur-xl rounded-[32px] border border-black/5 shadow-xl shadow-primary/5">
+            <div className="flex-grow relative group">
+              <SearchIcon className="absolute right-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-accent transition-colors" size={24} />
+              <input
+                type="text"
+                placeholder="ابحث بالمدينة، الحي، أو اسم العقار..."
+                className="w-full pr-14 pl-6 py-5 bg-white border-2 border-transparent rounded-[24px] focus:outline-none focus:border-accent/30 font-bold text-lg shadow-inner transition-all"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
             </div>
-            <button 
-              onClick={() => setShowFilters(!showFilters)}
-              className="luxury-button-outline flex items-center justify-center gap-2 px-8 bg-white"
-            >
-              <SlidersHorizontal size={20} />
-              تصفية النتائج
-            </button>
-            <button 
-              onClick={handleApplyFilters}
-              className="luxury-button px-12 bg-primary text-white hover:bg-black"
-            >
-              بحث
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className="luxury-button-outline flex-1 md:flex-none border-accent/20 bg-white hover:border-accent shadow-lg shadow-accent/5 backdrop-blur-md"
+              >
+                <SlidersHorizontal size={22} className="text-accent" />
+                تصفية
+              </button>
+              <button
+                onClick={handleApplyFilters}
+                className="luxury-button flex-1 md:flex-none px-12 bg-primary text-white hover:bg-black shadow-xl shadow-primary/10"
+              >
+                بحث
+              </button>
+            </div>
           </div>
         </div>
 
@@ -88,7 +96,7 @@ export default function SearchPage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                   <label className="block text-sm font-bold text-primary mb-3">نوع العقار</label>
-                  <select 
+                  <select
                     className="w-full p-4 bg-surface border border-black/5 rounded-xl focus:outline-none"
                     value={type}
                     onChange={(e) => setType(e.target.value)}
@@ -103,8 +111,8 @@ export default function SearchPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-primary mb-3">السعر الأدنى</label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     placeholder="0 ريال"
                     className="w-full p-4 bg-surface border border-black/5 rounded-xl focus:outline-none"
                     value={minPrice}
@@ -113,8 +121,8 @@ export default function SearchPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-primary mb-3">السعر الأعلى</label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     placeholder="لا يوجد حد"
                     className="w-full p-4 bg-surface border border-black/5 rounded-xl focus:outline-none"
                     value={maxPrice}
@@ -122,7 +130,7 @@ export default function SearchPage() {
                   />
                 </div>
                 <div className="flex items-end">
-                  <button 
+                  <button
                     onClick={handleApplyFilters}
                     className="w-full luxury-button bg-accent text-primary"
                   >
@@ -144,9 +152,9 @@ export default function SearchPage() {
             properties.map((p) => (
               <Link key={p.id} to={`/property/${p.id}`} className="luxury-card group overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={p.images[0] || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"} 
-                    alt={p.title} 
+                  <img
+                    src={p.images[0] || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"}
+                    alt={p.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
